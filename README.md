@@ -19,7 +19,7 @@ var blessed = require('blessed')
 
 let screen = blessed.screen();
 
-// Assing your markdown file path here
+// Assign your markdown file path here
 const slides = [
   'slides/slide1.md',
   'slides/slide2.md',
