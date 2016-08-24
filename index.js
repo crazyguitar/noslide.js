@@ -1,46 +1,15 @@
-var marked = require('marked')
-  , fs = require('fs')
-  , TerminalRenderer = require('marked-terminal')
-  , colors = require('colors')
-  , asciimo = require('asciimo').Figlet;
+var blessed = require('blessed')
+  , contrib = require('blessed-contrib')
+  , Slides = require('./slide');
 
-let font = "Serifcap";
-let path = 'README.md';
+let screen = blessed.screen();
+const slides = [
+  'slides/slide1.md',
+  'slides/slide2.md'];
 
-function parseFont(font) {
-  return new Promise((resolve, reject) => {
-    asciimo.parseFont(font, () => {
-      resolve(font);
-    });
-  });
-}
+let noslide = new Slides(slides);
+noslide.render(screen);
 
-function parseHeading(head) {
-  return asciimo.parseStr(head, font);
-}
-
-
-parseFont(font)
-.then(font => {
-  return new Promise((resolve, reject) => {
-    fs.readFile(path, 'utf8', (err, data) => {
-      if (err) reject(err);
-      else resolve(data);
-    });
-  });
-})
-.then(content => {
-  // set terminal
-  marked.setOptions({
-    renderer: new TerminalRenderer({
-      firstHeading: parseHeading
-    })
-  });
-  // show markdown parsing result
-  console.log(marked(content));
-})
-.catch(err => {
-  console.log(err);
+screen.key(['escape', 'q', 'C-c'], function(ch, key) {
+  return process.exit(0);
 });
-
-

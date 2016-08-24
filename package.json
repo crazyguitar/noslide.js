@@ -10,6 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "asciimo": "git+https://github.com/crazyguitar/asciimo.git",
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^3.5.5",
     "marked": "^0.3.6",
     "marked-terminal": "^1.6.1"
   }
