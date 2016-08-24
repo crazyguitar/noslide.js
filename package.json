@@ -1,0 +1,16 @@
+{
+  "name": "noslide.js",
+  "version": "1.0.0",
+  "description": "The Terminal slide tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fly",
+  "license": "MIT",
+  "dependencies": {
+    "asciimo": "git+https://github.com/crazyguitar/asciimo.git",
+    "marked": "^0.3.6",
+    "marked-terminal": "^1.6.1"
+  }
+}
