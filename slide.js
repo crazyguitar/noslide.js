@@ -69,7 +69,13 @@ Slide.prototype.render = function(screen) {
 
         // append all render page to carousel
         carousel.pages.push(function(screen) {
-          var box = blessed.box({content: marked(content)});
+          var box = blessed.box({ top: 'center'
+                                , left: 'center'
+                                , width: '80%'
+                                , height: '80%'
+                                , align: 'center'
+                                , border: { type: 'line'}
+                                , content: marked(content) });
           screen.append(box);
         });
 
