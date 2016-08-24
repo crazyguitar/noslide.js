@@ -6,9 +6,8 @@ var marked = require('marked')
   , contrib = require('blessed-contrib')
   , asciimo = require('asciimo').Figlet;
 
-defaultOpt = {
-  style: { font: 'Serifcap'}
-}
+// load default theme
+var defaultOpt = require('./themes/ZZZZZZZZZ9');
 
 function parseFont(font, fn) {
   asciimo.parseFont(font, () => {
@@ -34,20 +33,22 @@ function Slide(slides, options) {
   this.options = options || defaultOpt;
   this.slides = slides || [];
   this.numSlides = slides.length;
+
+  this.options.firstHeading = parseHeading;
 }
 
 
 Slide.prototype.render = function(screen) {
-  font = this.options.style.font || "Serifcap";
+  var options = this.options;
   var slides = this.slides;
   var pages = [];
   var numSlides = this.numSlides;
 
+  font = this.options.font || "Serifcap";
+
   // setup markdown parser
   marked.setOptions({
-    renderer: new TerminalRenderer({
-      firstHeading: parseHeading
-    })
+    renderer: new TerminalRenderer(options)
   });
 
   // create a carousel object
