@@ -73,7 +73,6 @@ Slide.prototype.render = function(screen) {
                                 , left: 'center'
                                 , width: '80%'
                                 , height: '80%'
-                                , align: 'center'
                                 , border: { type: 'line'}
                                 , content: marked(content) });
           screen.append(box);
