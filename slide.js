@@ -104,8 +104,8 @@ Slide.prototype.render = function(screen) {
         carousel.pages.push(function(screen) {
           var box = blessed.box({ top: 'center'
                                 , left: 'center'
-                                , width: '80%'
-                                , height: '80%'
+                                , width: '95%'
+                                , height: '95%'
                                 , border: { type: 'line'}
                                 , content: marked(content) });
           screen.append(box);
