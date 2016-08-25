@@ -23,7 +23,7 @@ var Ptt = {
   unescape: true,
   emoji: true,
   width: 80,
-  showSectionPrefix: true,
+  showSectionPrefix: false,
   reflowText: false,
   tableOptions: {},
   font: "Avatar"
