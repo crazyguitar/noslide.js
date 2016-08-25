@@ -9,16 +9,34 @@ var marked = require('marked')
 // load default theme
 var defaultOpt = require('./themes/Ptt');
 
+/**
+ * Parsing *.flf file to get fonts.
+ *
+ * @param {string} font - font name
+ * @param {callback} fn - callback function
+ */
 function parseFont(font, fn) {
   asciimo.parseFont(font, () => {
     fn();
   });
 }
 
+/**
+ * Parsing markdown header text and do formating.
+ *
+ * @param {string} head - markdown header text
+ * @returns {string} - format header text
+ */
 function parseHeading(head) {
   return asciimo.parseStr(head, font);
 }
 
+/**
+ * Read slide content.
+ *
+ * @param {string} slide - slide path
+ * @returns {Promise} a readFile promise
+ */
 function readSlide(slide) {
   const encoding = 'utf8';
   return new Promise((resolve, reject) => {
@@ -29,20 +47,37 @@ function readSlide(slide) {
   });
 }
 
+/**
+ * noslide.js module.
+ *
+ * @module noslide/slide
+ */
+
+/**
+ * Create a Slide object
+ */
 function Slide(slides, options) {
   this.options = options || defaultOpt;
   this.slides = slides || [];
   this.numSlides = slides.length;
 
   this.options.firstHeading = parseHeading;
+  this.screen = blessed.screen();
+
+  this.screen.key(['escape', 'q', 'C-c'], function(ch, key) {
+    return process.exit(0);
+  });
 }
 
-
+/**
+ * Render all slides
+ */
 Slide.prototype.render = function(screen) {
-  var options = this.options;
-  var slides = this.slides;
-  var pages = [];
-  var numSlides = this.numSlides;
+  var options = this.options
+    , slides = this.slides
+    , pages = []
+    , numSlides = this.numSlides
+    , screen = this.screen;
 
   font = this.options.font || "Serifcap";
 
