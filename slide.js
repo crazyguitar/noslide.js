@@ -7,7 +7,7 @@ var marked = require('marked')
   , asciimo = require('asciimo').Figlet;
 
 // load default theme
-var defaultOpt = require('./themes/ZZZZZZZZZ9');
+var defaultOpt = require('./themes/Ptt');
 
 function parseFont(font, fn) {
   asciimo.parseFont(font, () => {

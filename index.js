@@ -1,5 +1,6 @@
 var blessed = require('blessed')
-  , Slides = require('./slide');
+  , Slides = require('./slide')
+  , theme = require('./themes/Ptt');
 
 let screen = blessed.screen();
 const slides = [
@@ -8,7 +9,7 @@ const slides = [
   'slides/slide3.md',
   'slides/slide4.md'];
 
-let noslide = new Slides(slides);
+let noslide = new Slides(slides, theme);
 noslide.render(screen);
 
 screen.key(['escape', 'q', 'C-c'], function(ch, key) {
