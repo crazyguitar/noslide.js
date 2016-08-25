@@ -99,11 +99,8 @@ Slide.prototype.render = function(screen) {
     });
 
     // render all slide page
-    pages.forEach((page, idx) => {
-
-      page.then(content => {
-
-        // append all render page to carousel
+    Promise.all(pages).then(contents => {
+      contents.forEach((content, idx) => {
         carousel.pages.push(function(screen) {
           var box = blessed.box({ top: 'center'
                                 , left: 'center'
@@ -113,15 +110,12 @@ Slide.prototype.render = function(screen) {
                                 , content: marked(content) });
           screen.append(box);
         });
-
-        // after render all page, we start carousel
         if (numSlides === (idx + 1)) carousel.start();
-
-      }).catch(err => {
-        console.log(err);
+      }, reason => {
+        console.log(reason);
       });
-
     });
+
   });
 }
 
