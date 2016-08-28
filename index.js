@@ -7,7 +7,8 @@ const slides = [
   'slides/slide3.md',
   'slides/slide4.md',
   'slides/slide5.md',
-  'slides/slide6.md'];
+  'slides/slide6.md',
+  'slides/slide7.md'];
 
 let noslide = new Slides(slides, theme);
 noslide.render();

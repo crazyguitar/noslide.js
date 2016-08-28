@@ -29,7 +29,7 @@ function parseFont(font, fn) {
  * @returns {string} - format header text
  */
 function parseHeading(head) {
-  return '{center}' + asciimo.parseStr(head, font) + '{/center}';
+  return asciimo.parseStr(head, font);
 }
 
 TerminalRenderer.prototype.image = function(href, title, text) {
@@ -54,9 +54,9 @@ TerminalRenderer.prototype.heading = function(text, level, raw) {
     text = reflowText(text, this.o.width, this.options.gfm);
   }
   if (level === 1) {
-    return this.o.firstHeading(text) + '\n';
+    return '{center}' + this.o.firstHeading(text) + '{/center}\n';
   }
-  return this.o.heading(text) + '\n';
+  return '{center}' + this.o.heading(text) + '{/center}\n';
 };
 
 
@@ -69,6 +69,33 @@ TerminalRenderer.prototype.paragraph = function(texts) {
     return res;
   })
 }
+
+
+TerminalRenderer.prototype.link = function(href, title, text) {
+  text = text.join('');
+  if (this.options.sanitize) {
+    try {
+      var prot = decodeURIComponent(unescape(href))
+        .replace(/[^\w:]/g, '')
+        .toLowerCase();
+    } catch (e) {
+      return '';
+    }
+    if (prot.indexOf('javascript:') === 0) {
+      return '';
+    }
+  }
+
+  var hasText = text && text !== href;
+
+  var out = '';
+  if (hasText) out += this.emoji(text) + ' (';
+  out +=  this.o.href(href);
+  if (hasText) out += ')';
+
+  return "{center}" + this.o.link(out) + '{/center}';
+};
+
 
 /**
  * Read slide content.
