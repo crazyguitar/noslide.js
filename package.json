@@ -12,8 +12,9 @@
     "asciimo": "git+https://github.com/crazyguitar/asciimo.git",
     "blessed": "^0.1.81",
     "blessed-contrib": "^3.5.5",
+    "image-to-ascii": "^3.0.3",
     "jsdoc": "^3.4.0",
-    "marked": "^0.3.6",
+    "marked": "git+https://github.com/crazyguitar/marked.git",
     "marked-terminal": "^1.6.1"
   }
 }

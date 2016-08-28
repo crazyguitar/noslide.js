@@ -4,6 +4,7 @@ var marked = require('marked')
   , colors = require('colors')
   , blessed = require('blessed')
   , contrib = require('blessed-contrib')
+  ,imageToAscii = require("image-to-ascii")
   , asciimo = require('asciimo').Figlet;
 
 // load default theme
@@ -81,11 +82,6 @@ Slide.prototype.render = function(screen) {
 
   font = this.options.font || "Serifcap";
 
-  // setup markdown parser
-  marked.setOptions({
-    renderer: new TerminalRenderer(options)
-  });
-
   // create a carousel object
   var carousel = new contrib.carousel( []
                                      , { screen: screen
@@ -99,22 +95,39 @@ Slide.prototype.render = function(screen) {
     });
 
     // render all slide page
-    Promise.all(pages).then(contents => {
+    Promise.all(pages)
+    .then(markdowns => {
+      var p = [];
+      markdowns.forEach((markdown, idx) => {
+        p.push(marked(markdown, {
+          renderer: new TerminalRenderer(options),
+          promise: true
+        }));
+      });
+      return Promise.all(p);
+    })
+    .then(contents => {
+      var boxes =[];
       contents.forEach((content, idx) => {
-        carousel.pages.push(function(screen) {
+        boxes.push(function(screen) {
           var box = blessed.box({ top: 'center'
                                 , left: 'center'
                                 , width: '95%'
                                 , height: '95%'
                                 , border: { type: 'line'}
-                                , content: marked(content) });
+                                , content: content });
           screen.append(box);
         });
-        if (numSlides === (idx + 1)) carousel.start();
-      }, reason => {
-        console.log(reason);
       });
-    });
+      return Promise.all(boxes);
+    })
+    .then(boxes => {
+       carousel.pages = boxes;
+       carousel.start();
+    })
+    .catch(e => {
+      console.log(e);
+    })
 
   });
 }
