@@ -29,14 +29,16 @@ function parseFont(font, fn) {
  * @returns {string} - format header text
  */
 function parseHeading(head) {
-  return asciimo.parseStr(head, font);
+  return '{center}' + asciimo.parseStr(head, font) + '{/center}';
 }
 
 TerminalRenderer.prototype.image = function(href, title, text) {
   return new Promise((resolve, reject) => {
-    imageToAscii(href, (err, converted) => {
+    imageToAscii(href,
+      {
+      }, (err, converted) => {
       if (err) reject(err);
-      else resolve(converted + '\n');
+      else resolve('{center}' + converted + "{/center}\n");
     });
   });
 
@@ -150,8 +152,13 @@ Slide.prototype.render = function(screen) {
                                 , left: 'center'
                                 , width: '95%'
                                 , height: '95%'
+                                , scrollable: true
+                                , alwaysScroll: true
+                                , keys: true
+                                , vi: true
+                                , tags: true
                                 , border: { type: 'line'}
-                                , content: content });
+                                , content: content});
           screen.append(box);
         });
       });
