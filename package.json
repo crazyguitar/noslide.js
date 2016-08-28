@@ -11,7 +11,7 @@
   "dependencies": {
     "asciimo": "git+https://github.com/crazyguitar/asciimo.git",
     "blessed": "^0.1.81",
-    "blessed-contrib": "^3.5.5",
+    "blessed-contrib": "git+https://github.com/crazyguitar/blessed-contrib.git",
     "image-to-ascii": "^3.0.3",
     "jsdoc": "^3.4.0",
     "marked": "git+https://github.com/crazyguitar/marked.git",

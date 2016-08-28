@@ -123,8 +123,8 @@ Slide.prototype.render = function(screen) {
   // create a carousel object
   var carousel = new contrib.carousel( []
                                      , { screen: screen
-                                     , interval: 0
-                                     , controlKeys: true })
+                                       , interval: 0
+                                       , controlKeys: true })
 
   parseFont(font, function() {
     // read slides from files (using Promise)
