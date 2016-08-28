@@ -32,6 +32,42 @@ function parseHeading(head) {
   return asciimo.parseStr(head, font);
 }
 
+TerminalRenderer.prototype.image = function(href, title, text) {
+  return new Promise((resolve, reject) => {
+    imageToAscii(href, (err, converted) => {
+      if (err) reject(err);
+      else resolve(converted + '\n');
+    });
+  });
+
+};
+
+TerminalRenderer.prototype.heading = function(text, level, raw) {
+  text = this.transform(text.join(''));
+
+  var prefix = this.o.showSectionPrefix ?
+    (new Array(level + 1)).join('#')+' ' : '';
+  text = prefix + text;
+  if (this.o.reflowText) {
+    text = reflowText(text, this.o.width, this.options.gfm);
+  }
+  if (level === 1) {
+    return this.o.firstHeading(text) + '\n';
+  }
+  return this.o.heading(text) + '\n';
+};
+
+
+TerminalRenderer.prototype.paragraph = function(texts) {
+  return Promise.all(texts).then(data => {
+    var res = '';
+    data.forEach(i => {
+      res += i;
+    });
+    return res;
+  })
+}
+
 /**
  * Read slide content.
  *
