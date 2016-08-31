@@ -1,10 +1,11 @@
 # Outline
 
 1. List examples
-2. *code* block
-3. **Remote** images
-4. **Local** images 
-5. Table (align: ~~center~~)
+2. code block
+3. Remote Image
+4. Local Image
+5. Table
+6. Q & A
 
 # Unordered list 
 

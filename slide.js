@@ -5,14 +5,12 @@ var marked = require('marked')
   , blessed = require('blessed')
   , contrib = require('blessed-contrib')
   , imageToAscii = require("image-to-ascii")
-  , Table = require('cli-table')
-  , assign = require('lodash.assign')
+  , chalk = require('chalk')
+  , cardinal = require('cardinal')
   , asciimo = require('asciimo').Figlet;
 
 
-var TABLE_CELL_SPLIT = '^*||*^';
-var TABLE_ROW_WRAP = '*|*|*|*';
-var TABLE_ROW_WRAP_REGEXP = new RegExp(escapeRegExp(TABLE_ROW_WRAP), 'g');
+var HARD_RETURN = '\r';
 
 
 // load default theme
@@ -30,6 +28,7 @@ function parseFont(font, fn) {
   });
 }
 
+
 /**
  * Parsing markdown header text and do formating.
  *
@@ -40,38 +39,73 @@ function parseHeading(head) {
   return asciimo.parseStr(head, font);
 }
 
-function escapeRegExp(str) {
-  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+function tab(size) {
+  size = size || 4;
+  return (new Array(size)).join(' ');
 }
 
-function identity (str) {
-  return str;
+function indentify(text) {
+  if (!text) return text;
+  return tab() + text.split('\n').join('\n' + tab());
 }
 
-function generateTableRow(text, escape) {
-  if (!text) return [];
-  escape = escape || identity;
-  var lines = escape(text).split('\n');
-
-  var data = [];
-  lines.forEach(function (line) {
-    if (!line) return;
-    var parsed = line.replace(TABLE_ROW_WRAP_REGEXP, '').split(TABLE_CELL_SPLIT);
-
-    data.push(parsed.splice(0, parsed.length - 1));
+function setLineSameWidth(str) {
+  var lines  = str.split('\n');
+  var maxLen = Math.max(...lines.map((str) => { return str.length }));
+  var out    = "";
+  lines.forEach((line) => {
+    out += (line.replace(/\s+$/g, '') + ' '.repeat(maxLen - line.length) + '\n');
   });
-  return data;
+  return out;
 }
 
-TerminalRenderer.prototype.table = function(header, body) {
-  var table = new Table(assign({}, {
-      head: generateTableRow(header)[0]
-  }, this.tableSettings));
 
-  generateTableRow(body, this.transform).forEach(function (row) {
-    table.push(row);
+function fixHardReturn(text, reflow) {
+  return reflow ? text.replace(HARD_RETURN, /\n/g) : text;
+}
+
+function highlight(code, lang, opts, hightlightOpts) {
+  if (!chalk.enabled) return code;
+
+  var style = opts.code;
+
+  code = fixHardReturn(code, opts.reflowText);
+  if (lang !== 'javascript' && lang !== 'js') {
+    return style(code);
+  }
+
+  try {
+    return cardinal.highlight(code, hightlightOpts);
+  } catch (e) {
+    return style(code);
+  }
+}
+
+
+function indentLines (text) {
+  return text.replace(/\n/g, '\n' + tab()) + '\n\n';
+}
+
+function changeToOrdered(text) {
+  var out = "";
+  var lines = text.split('\n');
+  lines.forEach((line, idx) => {
+    out += (line.replace(/\s*\*/g, idx + '.') + '\n');
   });
-  return '{center}' + this.o.table(table.toString()) + '{/center}\n\n';
+  return out;
+}
+
+TerminalRenderer.prototype.code = function(code, lang, escaped) {
+  code = setLineSameWidth(code);
+  return '\n' + indentify(highlight(code, lang, this.o, this.highlightOptions)) + '\n';
+};
+
+TerminalRenderer.prototype.list = function(body, ordered) {
+  body = setLineSameWidth(body);
+  body = indentLines(this.o.listitem(body));
+  body = '{center}' + body + '{/center}\n';
+  if (!ordered) return body;
+  return changeToOrdered(body);
 };
 
 TerminalRenderer.prototype.image = function(href, title, text) {
@@ -96,9 +130,9 @@ TerminalRenderer.prototype.heading = function(text, level, raw) {
     text = reflowText(text, this.o.width, this.options.gfm);
   }
   if (level === 1) {
-    return '{center}' + this.o.firstHeading(text) + '{/center}\n';
+    return this.o.firstHeading(text) + '\n';
   }
-  return '{center}' + this.o.heading(text) + '{/center}\n';
+  return this.o.heading(text) + '\n';
 };
 
 
@@ -225,6 +259,7 @@ Slide.prototype.render = function(screen) {
                                 , alwaysScroll: true
                                 , keys: true
                                 , vi: true
+                                , align: 'center'
                                 , tags: true
                                 , border: { type: 'line'}
                                 , content: content});
