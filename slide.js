@@ -4,8 +4,16 @@ var marked = require('marked')
   , colors = require('colors')
   , blessed = require('blessed')
   , contrib = require('blessed-contrib')
-  ,imageToAscii = require("image-to-ascii")
+  , imageToAscii = require("image-to-ascii")
+  , Table = require('cli-table')
+  , assign = require('lodash.assign')
   , asciimo = require('asciimo').Figlet;
+
+
+var TABLE_CELL_SPLIT = '^*||*^';
+var TABLE_ROW_WRAP = '*|*|*|*';
+var TABLE_ROW_WRAP_REGEXP = new RegExp(escapeRegExp(TABLE_ROW_WRAP), 'g');
+
 
 // load default theme
 var defaultOpt = require('./themes/Ptt');
@@ -32,10 +40,44 @@ function parseHeading(head) {
   return asciimo.parseStr(head, font);
 }
 
+function escapeRegExp(str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
+
+function identity (str) {
+  return str;
+}
+
+function generateTableRow(text, escape) {
+  if (!text) return [];
+  escape = escape || identity;
+  var lines = escape(text).split('\n');
+
+  var data = [];
+  lines.forEach(function (line) {
+    if (!line) return;
+    var parsed = line.replace(TABLE_ROW_WRAP_REGEXP, '').split(TABLE_CELL_SPLIT);
+
+    data.push(parsed.splice(0, parsed.length - 1));
+  });
+  return data;
+}
+
+TerminalRenderer.prototype.table = function(header, body) {
+  var table = new Table(assign({}, {
+      head: generateTableRow(header)[0]
+  }, this.tableSettings));
+
+  generateTableRow(body, this.transform).forEach(function (row) {
+    table.push(row);
+  });
+  return '{center}' + this.o.table(table.toString()) + '{/center}\n\n';
+};
+
 TerminalRenderer.prototype.image = function(href, title, text) {
   return new Promise((resolve, reject) => {
     imageToAscii(href,
-      {
+      { size: { height: "60%" }
       }, (err, converted) => {
       if (err) reject(err);
       else resolve('{center}' + converted + "{/center}\n");
