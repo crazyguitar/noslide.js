@@ -103,7 +103,7 @@ TerminalRenderer.prototype.code = function(code, lang, escaped) {
 TerminalRenderer.prototype.list = function(body, ordered) {
   body = setLineSameWidth(body);
   body = indentLines(this.o.listitem(body));
-  body = '{center}' + body + '{/center}\n';
+  body = body + '\n';
   if (!ordered) return body;
   return changeToOrdered(body);
 };
@@ -114,7 +114,7 @@ TerminalRenderer.prototype.image = function(href, title, text) {
       { size: { height: "60%" }
       }, (err, converted) => {
       if (err) reject(err);
-      else resolve('{center}' + converted + "{/center}\n");
+      else resolve(converted + "\n");
     });
   });
 
@@ -169,7 +169,7 @@ TerminalRenderer.prototype.link = function(href, title, text) {
   out +=  this.o.href(href);
   if (hasText) out += ')';
 
-  return "{center}" + this.o.link(out) + '{/center}';
+  return this.o.link(out);
 };
 
 
