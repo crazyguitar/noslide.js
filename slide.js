@@ -95,6 +95,24 @@ function changeToOrdered(text) {
   return out;
 }
 
+function merge(obj) {
+  var i = 1
+    , target
+    , key;
+
+  for (; i < arguments.length; i++) {
+    target = arguments[i];
+    for (key in target) {
+      if (Object.prototype.hasOwnProperty.call(target, key)) {
+        obj[key] = target[key];
+      }
+    }
+  }
+
+  return obj;
+}
+
+
 TerminalRenderer.prototype.code = function(code, lang, escaped) {
   code = setLineSameWidth(code);
   return '\n' + indentify(highlight(code, lang, this.o, this.highlightOptions)) + '\n';
@@ -179,8 +197,8 @@ TerminalRenderer.prototype.link = function(href, title, text) {
  * @param {string} slide - slide path
  * @returns {Promise} a readFile promise
  */
-function readSlide(slide) {
-  const encoding = 'utf8';
+function readSlide(slide, encoding) {
+  var encoding = encoding || 'utf8';
   return new Promise((resolve, reject) => {
     fs.readFile(slide, encoding, (err, data) => {
       if (err) reject(err);
@@ -198,10 +216,9 @@ function readSlide(slide) {
 /**
  * Create a Slide object
  */
-function Slide(slides, options) {
+function Slide(slide, options) {
   this.options = options || defaultOpt;
-  this.slides = slides || [];
-  this.numSlides = slides.length;
+  this.slide = slide || [];
 
   this.options.firstHeading = parseHeading;
   this.screen = blessed.screen();
@@ -212,13 +229,14 @@ function Slide(slides, options) {
 }
 
 /**
- * Render all slides
+ * Render slide
  */
 Slide.prototype.render = function(screen) {
   var options = this.options
-    , slides = this.slides
-    , pages = []
-    , numSlides = this.numSlides
+    , slide = this.slide
+    , markdown = null
+    , markedopt = {}
+    , renderer = new TerminalRenderer(options)
     , screen = this.screen;
 
   font = this.options.font || "Serifcap";
@@ -230,24 +248,54 @@ Slide.prototype.render = function(screen) {
                                        , controlKeys: true })
 
   parseFont(font, function() {
-    // read slides from files (using Promise)
-    slides.forEach(slide => {
-      pages.push(readSlide(slide));
-    });
+    // read slide from file (using Promise)
+    markdown = readSlide(slide);
+    markedopt = merge({} , marked.defaults , { renderer: renderer
+                                             , promise: true});
 
     // render all slide page
-    Promise.all(pages)
-    .then(markdowns => {
-      var p = [];
-      markdowns.forEach((markdown, idx) => {
-        p.push(marked(markdown, {
-          renderer: new TerminalRenderer(options),
-          promise: true
-        }));
+    markdown
+    .then(content => {
+      /* parsing tokens and put tokens into each page */
+
+      var tokens = marked.Lexer.lex(content, markedopt);
+      var pageTokens = [];
+      tokens.forEach(token => {
+        if (pageTokens.length === 0) {
+          pageTokens.push([token]);
+        } else if (token.type === 'heading' && token.depth === 1) {
+          pageTokens.push([token]);
+        } else {
+          pageTokens[pageTokens.length-1].push(token);
+        }
       });
-      return Promise.all(p);
+      pageTokens.forEach(toks => {
+        toks.links = tokens.links;
+      })
+      
+      return Promise.all(pageTokens);
+    })
+    .then(pageTokens => {
+      /* parse each page via given tokens */
+      var slides = [];
+      pageTokens.forEach(token => {
+        slides.push(marked.Parser.parse(token, markedopt));
+      });
+      return Promise.all(slides);
+    })
+    .then(results => {
+      var outs = [];
+      results.forEach(blocks => {
+        var out = "";
+        blocks.forEach(block => {
+          out += block;
+        })
+        outs.push(out);
+      });
+      return outs;
     })
     .then(contents => {
+      /* put parse result into blessed box */
       var boxes =[];
       contents.forEach((content, idx) => {
         boxes.push(function(screen) {
@@ -269,8 +317,9 @@ Slide.prototype.render = function(screen) {
       return Promise.all(boxes);
     })
     .then(boxes => {
-       carousel.pages = boxes;
-       carousel.start();
+      /* put boxes into carousel */
+      carousel.pages = boxes;
+      carousel.start();
     })
     .catch(e => {
       console.log(e);
