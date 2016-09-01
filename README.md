@@ -5,6 +5,12 @@ git clone https://github.com/crazyguitar/noslide.js
 cd noslide.js
 npm install
 ```
+### Install binary tool
+
+```bash
+npm install -g
+```
+
 
 # Demo
 
@@ -13,9 +19,11 @@ npm install
 # Binary tool
 
 ```bash
-
 ./noslide <your markdown>
 
+# or exec npm install -g
+
+noslide <your markdown>
 ```
 
 # How to use ``noslide``

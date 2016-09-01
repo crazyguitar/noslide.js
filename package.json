@@ -8,6 +8,9 @@
   },
   "author": "fly",
   "license": "MIT",
+  "bin": {
+    "noslide": "./noslide"
+  },
   "dependencies": {
     "asciimo": "git+https://github.com/crazyguitar/asciimo.git",
     "blessed": "^0.1.81",
