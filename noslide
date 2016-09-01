@@ -1,11 +1,25 @@
-var Slides = require('./slide')
-  , theme = require('./themes/Ptt');
+#!/usr/bin/env node
 
+/*
+ * noslide
+ */
 
-const slide = 'slides/example.md'
+var commander = require('commander')
+  , noslide = require('./lib/slide.js')
+  , theme = require('./lib/themes/Ptt');
 
-let noslide = new Slides(slide, theme);
-noslide.render();
+commander.version('1.0.0')
+         .usage('<markdown>')
+         .parse(process.argv);
+
+args = commander.args;
+
+if (args != 2)
+    console.log('Usage: noslide ' + commander.usage());
+
+markdown = args[0];
+let slide = new noslide(markdown, theme);
+slide.render();
 
 /*
 [49m[K[0m[48;5;16m                                                            [49m

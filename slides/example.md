@@ -16,7 +16,7 @@
 5. Table
 6. Q & A
 
-## Unordered list 
+## Unordered list
 
 * item 1
 * item 2
@@ -47,6 +47,7 @@ foo('Hello');
 # Local Image
 
 ![](images/Transfinite.jpg)
+
 # Remote Image!
 
 ![](https://octodex.github.com/images/baracktocat.jpg)

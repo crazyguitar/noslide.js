@@ -10,16 +10,23 @@ npm install
 
 ![](images/demo.gif)
 
+# Binary tool
 
-# How to create a slide
+```bash
+
+./noslide <your markdown>
+
+```
+
+# How to use ``noslide``
 
 ```js
-var Slides = require('./slide')
-  , theme = require('./themes/Ptt');
+var noslide = require('./lib/slide')
+  , theme = require('./lib/themes/Ptt');
 
 
-const slide = 'slides/example.md'
+const markdown = 'slides/example.md'
 
-let noslide = new Slides(slide, theme);
-noslide.render();
+let slide = new noslide(markdown, theme);
+slide.render();
 ```
