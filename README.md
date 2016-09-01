@@ -19,7 +19,7 @@ npm install -g
 # Binary tool
 
 ```bash
-./noslide <your markdown>
+./noslide -t <theme> <your markdown>
 
 # or exec npm install -g
 

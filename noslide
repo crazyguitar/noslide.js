@@ -4,18 +4,27 @@
  * noslide
  */
 
-var commander = require('commander')
-  , noslide = require('./lib/slide.js')
-  , theme = require('./lib/themes/Ptt');
+const commander = require('commander')
+    , noslide = require('./lib/slide.js')
+    , themes = require('./index');
 
 commander.version('1.0.0')
-         .usage('<markdown>')
+         .usage('[options] <markdown>')
+         .option('-t, --theme [theme]', 'Add the specified theme [Ptt]', 'Ptt')
          .parse(process.argv);
 
 args = commander.args;
 
-markdown = args[0];
+/* select theme */
+theme = themes[commander.theme] || themes['Ptt'];
+
+/* markdown slide path */
+markdown = args[args.length-1];
+
+/* new a slide object */
 let slide = new noslide(markdown, theme);
+
+/* render slide */
 slide.render();
 
 /*
