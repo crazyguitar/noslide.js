@@ -2,7 +2,7 @@ var Slides = require('./slide')
   , theme = require('./themes/Ptt');
 
 
-var slide = 'slides/example.md'
+const slide = 'slides/example.md'
 
 let noslide = new Slides(slide, theme);
 noslide.render();
