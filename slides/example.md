@@ -1,8 +1,13 @@
-# Hello noslide.js
+# noslide.js
 
-### A terminal slide tool
+A command-line based markdown presentation tool which writen by **nodejs**.
 
-![](images/ptt.jpg)
+All pull requests are welcome!
+
+
+### Noder JS
+
+### Email: spiderpower02@gmail.com
 
 
 # Outline
@@ -46,7 +51,7 @@ foo('Hello');
 
 # Local Image
 
-![](images/Transfinite.jpg)
+![](images/ptt.jpg)
 
 # Remote Image!
 
@@ -62,7 +67,7 @@ foo('Hello');
 | zebra stripes | are neat      |    $1 |
 
 
-# Thank your!
+# Thank you!
 
 * [GitHub](https://github.com/crazyguitar/noslide.js)
 * [blessed](https://github.com/chjj/blessed)
