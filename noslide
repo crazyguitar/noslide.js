@@ -14,9 +14,6 @@ commander.version('1.0.0')
 
 args = commander.args;
 
-if (args != 2)
-    console.log('Usage: noslide ' + commander.usage());
-
 markdown = args[0];
 let slide = new noslide(markdown, theme);
 slide.render();
