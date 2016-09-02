@@ -144,6 +144,17 @@ become
 
 # Block quote
 
+Markdown
+
+```
+> Blockquotes are very handy in email to emulate reply text.
+> This line is part of the same quote.
+
+> Oh, you can put Markdown into a blockquote. 
+```
+
+become
+
 > Blockquotes are very handy in email to emulate reply text.
 > This line is part of the same quote.
 
