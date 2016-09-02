@@ -7,12 +7,23 @@ All pull requests are welcome!
 
 ### Noder JS
 
-### Email: spiderpower02@gmail.com
+### Email: NoderJS@example.com
 
 
-# Outline
+# Ordered list
 
-## Ordered list
+Markdown
+
+```
+1. List examples
+2. code block
+3. Remote Image
+4. Local Image
+5. Table
+6. Q & A
+```
+
+become
 
 1. List examples
 2. code block
@@ -21,7 +32,20 @@ All pull requests are welcome!
 5. Table
 6. Q & A
 
-## Unordered list
+# Unordered list
+
+Markdown
+
+```
+* item 1
+* item 2
+⋅⋅ Unordered sub-list. 
+* item 3
+⋅⋅ Unordered sub-list
+* final item
+```
+
+become
 
 * item 1
 * item 2
@@ -31,34 +55,84 @@ All pull requests are welcome!
 * final item
 
 
-# Example
+# Code Block
 
-```js
-console.log("Hello Slide");
+Markdown
 
-var foo = function(bar) {
-  console.log(bar);
-};
-var a = [1,2,3,4];
-a.forEach(item => {
-  item += (item *2);
-  console.log(item);
+```
+var str = "Hello noslide.js!!! (>////<)"
+
+/* Example code block (from request README) */
+request('http://www.google.com', function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    console.log(body)
+  }
 })
-
-var str = "Hello Slide! This is Long String"
-foo('Hello');
 ```
 
+become
+
+```js
+var str = "Hello noslide.js!!! (>////<)"
+
+/* Example code block (from request README) */
+request('http://www.google.com', function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    console.log(body)
+  }
+})
+```
+
+# Inline Code
+
+Markdown
+
+```
+Inline `code` has `back-ticks around` it.
+```
+
+become
+
+Inline `code` has `back-ticks around` it.
+
 # Local Image
+
+Markdown
+
+```
+![](images/ptt.jpg)
+```
+
+become
 
 ![](images/ptt.jpg)
 
 # Remote Image!
 
+Markdown
+
+```
+![](https://octodex.github.com/images/baracktocat.jpg)
+```
+
+become
+
 ![](https://octodex.github.com/images/baracktocat.jpg)
 
 
 # Table
+
+Markdown
+
+```
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+```
+
+become
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
@@ -67,7 +141,20 @@ foo('Hello');
 | zebra stripes | are neat      |    $1 |
 
 
-# Thank you!
+# Link
+
+Markdown
+
+```
+* [GitHub](https://github.com/crazyguitar/noslide.js)
+* [blessed](https://github.com/chjj/blessed)
+* [blessed-contrib](https://github.com/crazyguitar/blessed-contrib)
+* [marked](https://github.com/crazyguitar/marked)
+* [marked-terminal](https://github.com/mikaelbr/marked-terminal)
+* [image-to-ascii](https://github.com/IonicaBizau/image-to-ascii)
+```
+
+become
 
 * [GitHub](https://github.com/crazyguitar/noslide.js)
 * [blessed](https://github.com/chjj/blessed)
@@ -75,3 +162,8 @@ foo('Hello');
 * [marked](https://github.com/crazyguitar/marked)
 * [marked-terminal](https://github.com/mikaelbr/marked-terminal)
 * [image-to-ascii](https://github.com/IonicaBizau/image-to-ascii)
+
+# Thank You!
+
+[GitHub](https://github.com/crazyguitar/noslide.js)
+
