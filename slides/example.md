@@ -60,6 +60,7 @@ become
 
 Markdown
 
+<pre>
 ```
 var str = "Hello noslide.js!!! (>////<)"
 
@@ -70,6 +71,7 @@ request('http://www.google.com', function (error, response, body) {
   }
 })
 ```
+</pre>
 
 become
 
