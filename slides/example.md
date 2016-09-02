@@ -6,7 +6,6 @@ All pull requests are welcome!
 
 ---
 
-
 ### Noder JS
 
 ### Email: NoderJS@example.com
@@ -141,6 +140,14 @@ become
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
+
+
+# Block quote
+
+> Blockquotes are very handy in email to emulate reply text.
+> This line is part of the same quote.
+
+> Oh, you can put Markdown into a blockquote. 
 
 
 # Link
