@@ -4,6 +4,8 @@ A command-line based markdown presentation tool which writen by **nodejs**.
 
 All pull requests are welcome!
 
+---
+
 
 ### Noder JS
 
@@ -39,9 +41,9 @@ Markdown
 ```
 * item 1
 * item 2
-⋅⋅ Unordered sub-list. 
+.. Unordered sub-list
 * item 3
-⋅⋅ Unordered sub-list
+.. Unordered sub-list
 * final item
 ```
 
@@ -49,9 +51,9 @@ become
 
 * item 1
 * item 2
-⋅⋅ Unordered sub-list. 
+.. Unordered sub-list
 * item 3
-⋅⋅ Unordered sub-list
+.. Unordered sub-list
 * final item
 
 
