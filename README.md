@@ -46,3 +46,10 @@ const markdown = 'slides/example.md'
 let slide = new noslide(markdown, theme);
 slide.render();
 ```
+
+### Other related projects
+
+[vimdeck](https://github.com/tybenz/vimdeck)
+[mdp](https://github.com/visit1985/mdp)
+[vtmc](https://github.com/jclulow/vtmc)
+[tkn](https://github.com/fxn/tkn)
