@@ -1,12 +1,19 @@
 {
   "name": "noslide.js",
   "version": "1.0.0",
-  "description": "The Terminal slide tool",
+  "description": "A Simple Terminal slide tool",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "fly",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crazyguitar/noslide.js"
+  },
+  "bugs": {
+    "url": "https://github.com/crazyguitar/noslide.js/issues"
+  },
   "license": "MIT",
   "bin": {
     "noslide": "./noslide"

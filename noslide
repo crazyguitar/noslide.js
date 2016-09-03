@@ -5,8 +5,8 @@
  */
 
 const commander = require('commander')
-    , noslide = require('./lib/slide.js')
-    , themes = require('./index');
+    , noslide = require('./index').noslide
+    , themes = require('./index').themes;
 
 commander.version('1.0.0')
          .usage('[options] <markdown>')

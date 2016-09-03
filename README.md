@@ -29,8 +29,8 @@ noslide <your markdown>
 # How to use ``noslide``
 
 ```js
-var noslide = require('./lib/slide')
-  , theme = require('./lib/themes/Ptt');
+var noslide = require('./index').noslide
+  , theme = require('./index').themes.Ptt;
 
 
 const markdown = 'slides/example.md'
