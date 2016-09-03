@@ -163,6 +163,31 @@ become
 > Oh, you can put Markdown into a blockquote. 
 
 
+# HTML
+
+Markdown
+
+```
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>HTML in noslide</dt>
+  <dd>Does not work very well.</dd>
+</dl>
+```
+
+become
+
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>HTML in noslide</dt>
+  <dd>Does not work very well.</dd>
+</dl>
+
+
 # Link
 
 Markdown
