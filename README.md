@@ -23,18 +23,22 @@ npm install -g
 ### Binary tool
 
 ```bash
-./noslide -t <theme> <your markdown>
+$ noslide -h
 
-### or exec npm install -g
+  Usage: noslide [options] <markdown>
 
-noslide <your markdown>
+  Options:
+
+    -h, --help           output usage information
+    -V, --version        output the version number
+    -t, --theme [theme]  Add the specified theme [Ptt]
 ```
 
 ### How to use ``noslide``
 
 ```js
-var noslide = require('./index').noslide
-  , theme = require('./index').themes.Ptt;
+var noslide = require('noslide-js').noslide
+  , theme = require('noslide-js').themes.Ptt;
 
 
 const markdown = 'slides/example.md'
