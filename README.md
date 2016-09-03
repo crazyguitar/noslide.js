@@ -1,32 +1,36 @@
-# Install
+# noslide.js
+
+[![NPM](https://nodei.co/npm/noslide.js.png)](https://nodei.co/npm/noslide.js/)
+
+### Install
 
 ```bash
 git clone https://github.com/crazyguitar/noslide.js
 cd noslide.js
 npm install
 ```
-### Install binary tool
+##### Install binary tool
 
 ```bash
 npm install -g
 ```
 
 
-# Demo
+### Demo
 
 ![](images/demo.gif)
 
-# Binary tool
+### Binary tool
 
 ```bash
 ./noslide -t <theme> <your markdown>
 
-# or exec npm install -g
+### or exec npm install -g
 
 noslide <your markdown>
 ```
 
-# How to use ``noslide``
+### How to use ``noslide``
 
 ```js
 var noslide = require('./index').noslide
