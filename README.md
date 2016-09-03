@@ -1,6 +1,6 @@
 # noslide.js
 
-[![NPM](https://nodei.co/npm/noslide.js.png)](https://nodei.co/npm/noslide.js/)
+[![NPM](https://nodei.co/npm/noslide-js.png?compact=true)](https://nodei.co/npm/noslide-js/)
 
 ### Install
 
