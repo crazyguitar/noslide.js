@@ -1,6 +1,6 @@
 {
   "name": "noslide-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Simple Terminal slide tool",
   "main": "index.js",
   "scripts": {
