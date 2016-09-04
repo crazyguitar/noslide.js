@@ -16,7 +16,7 @@ commander.version('1.0.0')
 args = commander.args;
 
 /* select theme */
-theme = themes[commander.theme] || themes['Ptt'];
+theme = themes[commander.theme] || themes.Ptt;
 
 /* markdown slide path */
 markdown = args[args.length-1];

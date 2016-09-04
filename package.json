@@ -27,5 +27,10 @@
     "jsdoc": "^3.4.0",
     "marked": "git+https://github.com/crazyguitar/marked.git",
     "marked-terminal": "^1.6.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.1",
+    "jshint": "^2.9.3"
   }
 }
