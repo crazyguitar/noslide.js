@@ -37,11 +37,12 @@ $ noslide -h
 ### Control Keys
 
 ```
-    Arrow right    next slide
-    Arrow left     previous slide
-    Arrow up       scroll up slide
-    Arrow down     scroll down slide
-    q, Ctrl+c      quit
+    Arrow right      next slide
+    Arrow left       previous slide
+    Arrow up         scroll up slide
+    Arrow down       scroll down slide
+    r                reload slide
+    exc, q, Ctrl+c   quit
 ```
 
 
