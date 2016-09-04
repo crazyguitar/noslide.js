@@ -42,7 +42,7 @@ $ noslide -h
     Arrow up         scroll up slide
     Arrow down       scroll down slide
     r                reload slide
-    exc, q, Ctrl+c   quit
+    esc, q, Ctrl+c   quit
 ```
 
 
