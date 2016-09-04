@@ -8,7 +8,7 @@ before_script:
   - npm install -g gulp
   - npm install
 
-script: gulp
+script:
   - gulp lint
 
 sudo: false
