@@ -34,6 +34,17 @@ $ noslide -h
     -t, --theme [theme]  Add the specified theme [Ptt]
 ```
 
+### Control Keys
+
+```
+    Arrow right    next slide
+    Arrow left     previous slide
+    Arrow up       scroll up slide
+    Arrow down     scroll down slide
+    q, Ctrl+c      quit
+```
+
+
 ### How to use ``noslide``
 
 ```js
