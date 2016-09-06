@@ -14,5 +14,6 @@ src = [ './index.js'
 gulp.task('lint', function() {
   return gulp.src(src)
     .pipe(jshint(jshintOpt))
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter('default'))
+    .pipe(jshint.reporter("fail"));
 });
