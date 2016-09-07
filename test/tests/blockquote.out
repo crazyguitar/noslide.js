@@ -1,0 +1,22 @@
+d8888b. db       .d88b.   .o88b. db   dD  .d88b.  db    db  .d88b.  d888888b d88888b 
+88  `8D 88      .8P  Y8. d8P  Y8 88 ,8P' .8P  Y8. 88    88 .8P  Y8. `~~88~~' 88'     
+88oooY' 88      88    88 8P      88,8P   88    88 88    88 88    88    88    88ooooo 
+88~~~b. 88      88    88 8b      88`8b   88    88 88    88 88    88    88    88~~~~~ 
+88   8D 88booo. `8b  d8' Y8b  d8 88 `88. `8P  d8' 88b  d88 `8b  d8'    88    88.     
+Y8888P' Y88888P  `Y88P'   `Y88P' YP   YD  `Y88'Y8 ~Y8888P'  `Y88P'     YP    Y88888P 
+                                                                                     
+                                                                                     
+
+
+[90m[3m   > Blockquotes are very handy in email to emulate reply text.
+   > This line is part of the same quote.                      
+   
+   [23m[39m
+
+
+Quote break.
+
+[90m[3m   > This is a very long line that will still be quoted properly when it wraps. Oh boy let&#39;s keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can [3mput[3m [1mMarkdown[22m into a blockquote.
+   
+   [23m[39m
+

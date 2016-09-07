@@ -15,7 +15,7 @@ src = [ './index.js'
       , './lib/themes/*.js'
       , './test/index.js'];
 
-gulp.task('test', () => {
+gulp.task('test', ['lint'], () => {
   gulp.src(srcTest)
       .pipe(mocha())
       .once('error', () => {
@@ -33,4 +33,4 @@ gulp.task('lint', () => {
     .pipe(jshint.reporter("fail"));
 });
 
-gulp.task('default', ['test', 'lint']);
+gulp.task('default', ['test']);
