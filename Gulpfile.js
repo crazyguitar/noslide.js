@@ -1,6 +1,7 @@
 const jshint   = require('gulp-jshint')
     , mocha    = require('gulp-mocha')
     , istanbul = require('gulp-istanbul')
+    , coveralls = require('gulp-coveralls')
     , gulp     = require('gulp');
 
 jshintOpt = { esversion: 6
@@ -23,6 +24,13 @@ gulp.task('pre-test', function () {
     .pipe(istanbul.hookRequire());
 });
 
+gulp.task('lint', () => {
+  return gulp.src(src)
+    .pipe(jshint(jshintOpt))
+    .pipe(jshint.reporter('default'))
+    .pipe(jshint.reporter("fail"));
+});
+
 gulp.task('test', ['pre-test', 'lint'], () => {
   gulp.src(srcTest)
       .pipe(mocha())
@@ -35,11 +43,10 @@ gulp.task('test', ['pre-test', 'lint'], () => {
       });
 });
 
-gulp.task('lint', () => {
-  return gulp.src(src)
-    .pipe(jshint(jshintOpt))
-    .pipe(jshint.reporter('default'))
-    .pipe(jshint.reporter("fail"));
+gulp.task('coveralls', ['test'], function() {
+  if (!process.env.CI) return;
+  return gulp.src(path.join(__dirname, 'coverage/lcov.info'))
+    .pipe(coveralls());
 });
 
-gulp.task('default', ['test']);
+gulp.task('default', ['coveralls']);
