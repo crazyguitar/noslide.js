@@ -31,7 +31,6 @@ const chai    = require('chai')
             slides.forEach(slide => {
               res += slide;
             });
-            console.log(res);
             expect(res).to.equal(out);
           });
       });
