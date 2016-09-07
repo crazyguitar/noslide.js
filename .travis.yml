@@ -5,12 +5,11 @@ node_js:
   - "4"
 
 before_script:
-  - npm install
   - npm install -g gulp
   - npm install -g mocha
+  - npm install
 
 script:
-  - gulp test
-  - gulp lint
+  - gulp
 
 sudo: false
