@@ -1,6 +1,7 @@
-const jshint = require('gulp-jshint')
-    , mocha  = require('gulp-mocha')
-    , gulp   = require('gulp');
+const jshint   = require('gulp-jshint')
+    , mocha    = require('gulp-mocha')
+    , istanbul = require('gulp-istanbul')
+    , gulp     = require('gulp');
 
 jshintOpt = { esversion: 6
             , laxcomma: true
@@ -15,9 +16,17 @@ src = [ './index.js'
       , './lib/themes/*.js'
       , './test/index.js'];
 
-gulp.task('test', ['lint'], () => {
+
+gulp.task('pre-test', function () {
+  return gulp.src(['lib/*.js', 'lib/themes/*.js'])
+    .pipe(istanbul())
+    .pipe(istanbul.hookRequire());
+});
+
+gulp.task('test', ['pre-test', 'lint'], () => {
   gulp.src(srcTest)
       .pipe(mocha())
+      .pipe(istanbul.writeReports())
       .once('error', () => {
         process.exit(1);
       })
