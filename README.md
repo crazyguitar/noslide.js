@@ -3,6 +3,7 @@
 [![NPM](https://nodei.co/npm/noslide-js.png?compact=true)](https://nodei.co/npm/noslide-js/)
 
 [![Build Status](https://travis-ci.org/crazyguitar/noslide.js.svg?branch=master)](https://travis-ci.org/crazyguitar/noslide.js)
+[![Coverage Status](https://coveralls.io/repos/github/crazyguitar/noslide.js/badge.svg?branch=master)](https://coveralls.io/github/crazyguitar/noslide.js?branch=master)
 
 ### Install
 
