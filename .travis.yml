@@ -11,4 +11,7 @@ before_script:
 script:
   - gulp
 
+after_success:
+  - coveralls
+
 sudo: false
