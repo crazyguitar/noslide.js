@@ -1,7 +1,6 @@
 const jshint    = require('gulp-jshint')
     , mocha     = require('gulp-mocha')
     , istanbul  = require('gulp-istanbul')
-    , coveralls = require('gulp-coveralls')
     , gulp      = require('gulp')
     , path      = require('path');
 
@@ -44,9 +43,4 @@ gulp.task('test', ['pre-test', 'lint'], () => {
       });
 });
 
-gulp.task('coveralls', ['test'], function() {
-  return gulp.src(path.join(__dirname, 'coverage/lcov.info'))
-    .pipe(coveralls());
-});
-
-gulp.task('default', ['coveralls']);
+gulp.task('default', ['test']);
