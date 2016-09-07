@@ -11,10 +11,10 @@ const chai    = require('chai')
 (function(){
   'use strict';
 
-function test(mdPath, outPath) {
-  const theme   = themes.Ptt
-      , mdFile  = __dirname + "/" + mdPath
-      , outFile = __dirname + "/" + outPath
+function test(themeName) {
+  const theme   = themes[themeName]
+      , mdFile  = __dirname + "/tests/" + themeName + ".md"
+      , outFile = __dirname + "/tests/" + themeName + ".md.out"
       , slide   = new noslide(mdFile, theme);
 
   var out = fs.readFileSync(outFile, 'utf8');
@@ -31,21 +31,29 @@ function test(mdPath, outPath) {
 
 describe('Slide.parse', function() {
 
+  var suites = [ 'Ptt'
+               , 'ZZZZZZZZZ9'
+               , 'Lavchi'
+               , 'ChinLan'
+               , 'XXXXGAY'
+               , 'sumade'
+               , 'segawar'
+               , 'email5566'
+               , 'hiimlive'
+               , 'mayaman'
+               , 'mayaman'
+               , 'bill7437'
+               , 'mini158'
+               , 'F7'];
+
   /*
    * Testing heading format
    */
-  describe('# heading', () => {
-    it('should be figlet format result.', () => {
-      test('tests/heading.md', 'tests/heading.out');
-    });
-  });
-
-  /*
-   * Testing blockquote
-   */
-  describe('# blockquote', () => {
-    it ('should be like `> msg` ', () => {
-      test('tests/blockquote.md', 'tests/blockquote.out');
+  suites.forEach( s => {
+    describe('Test theme "' + s + '"', () => {
+      it('should be figlet format result.', () => {
+        test(s);
+      });
     });
   });
 

@@ -1,0 +1,97 @@
+  ^       ^    ^    ^       ^    ^    ^    ^    ^  
+ /#\     /P\  /t\  /t\     /T\  /h\  /e\  /m\  /e\ 
+<___>   <___><___><___>   <___><___><___><___><___>
+
+
+[32m[1m## noslide.js[22m[39m
+
+[32m[1m### noslide.js[22m[39m
+
+[32m[1m#### noslide.js[22m[39m
+
+[32m[1m##### noslide.js[22m[39m
+  ^       ^    ^    ^    ^    ^    ^    ^    ^  
+ /#\     /E\  /m\  /p\  /h\  /a\  /s\  /i\  /s\ 
+<___>   <___><___><___><___><___><___><___><___>
+
+
+[3mThis text will be italic[23m
+[3mThis will also be italic[23m
+
+[1mThis text will be bold[22m
+[1mThis will also be bold[22m
+
+[3mYou ,[1mcan[22m, combine them[23m
+  ^       ^    ^    ^    ^    ^  
+ /#\     /T\  /a\  /b\  /l\  /e\ 
+<___>   <___><___><___><___><___>
+
+[0m[90m┌──────────────┬───────────────┐[39m
+[90m│[39m[31m First Header [39m[90m│[39m[31m Second Header [39m[90m│[39m
+[90m├──────────────┼───────────────┤[39m
+[90m│[39m cell 1       [90m│[39m cell 2        [90m│[39m
+[90m├──────────────┼───────────────┤[39m
+[90m│[39m first column [90m│[39m second column [90m│[39m
+[90m└──────────────┴───────────────┘[39m[0m
+
+  ^       ^    ^    ^    ^       ^    ^    ^    ^    ^  
+ /#\     /C\  /o\  /d\  /e\     /B\  /l\  /o\  /c\  /k\ 
+<___>   <___><___><___><___>   <___><___><___><___><___>
+
+
+   [32mvar[39m [34mconsole[39m[32m.[39m[34mlog[39m[90m([39m[92m"Hello >////<"[39m[90m)[39m[90m;[39m
+   [37ma[39m [93m=[39m [33m[[39m[34m1[39m[32m,[39m[34m2[39m[32m,[39m[34m3[39m[32m,[39m[34m4[39m[32m,[39m[34m5[39m[33m][39m[90m;[39m                
+   [37ma[39m[32m.[39m[37mforEach[39m[90m([39m[37mitem[39m [93m=>[39m [33m{[39m             
+     [34mconsole[39m[32m.[39m[34mlog[39m[90m([39m[37mitem[39m[90m)[39m[90m;[39m            
+   [33m}[39m[90m)[39m[90m;[39m                             
+   
+
+   [33mecho -e "Hello noslide.js" | grep "noslide"
+   [39m
+  ^       ^    ^    ^    ^    ^       ^    ^    ^    ^  
+ /#\     /O\  /r\  /d\  /e\  /r\     /L\  /i\  /s\  /t\ 
+<___>   <___><___><___><___><___>   <___><___><___><___>
+
+[0m        
+1. item1
+2. item2
+3. item3
+   [0m
+
+
+
+  ^       ^    ^    ^    ^    ^    ^    ^       ^    ^    ^    ^  
+ /#\     /U\  /n\  /o\  /r\  /d\  /e\  /r\     /L\  /i\  /s\  /t\ 
+<___>   <___><___><___><___><___><___><___>   <___><___><___><___>
+
+[0m          
+    * item   
+    * item   
+   .. subitem
+   [0m
+
+
+  ^       ^    ^    ^    ^  
+ /#\     /L\  /i\  /n\  /k\ 
+<___>   <___><___><___><___>
+
+
+[34mGitHub ([34m[4mhttps://github.com/[24m[34m)[39m
+[34mnoslide.js ([34m[4mhttps://github.com/crazyguitar/noslide.js[24m[34m)[39m
+  ^       ^    ^    ^    ^    ^    ^    ^    ^    ^    ^  
+ /#\     /B\  /l\  /o\  /c\  /k\  /q\  /u\  /o\  /t\  /e\ 
+<___>   <___><___><___><___><___><___><___><___><___><___>
+
+
+[90m[3m   > Blockquotes are very handy in email to emulate reply text.
+   > This line is part of the same quote.                      
+   
+   [23m[39m
+
+
+Quote break.
+
+[90m[3m   > This is a very long line that will still be quoted properly when it wraps. Oh boy let&#39;s keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can [3mput[3m [1mMarkdown[22m into a blockquote.
+   
+   [23m[39m
+

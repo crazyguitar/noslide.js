@@ -1,0 +1,137 @@
+d8888b. d888888b d888888b   d888888b db   db d88888b .88b  d88. d88888b 
+88  `8D `~~88~~' `~~88~~'   `~~88~~' 88   88 88'     88'YbdP`88 88'     
+88oodD'    88       88         88    88ooo88 88ooooo 88  88  88 88ooooo 
+88~~~      88       88         88    88~~~88 88~~~~~ 88  88  88 88~~~~~ 
+88         88       88         88    88   88 88.     88  88  88 88.     
+88         YP       YP         YP    YP   YP Y88888P YP  YP  YP Y88888P 
+                                                                        
+                                                                        
+
+
+[32m[1mnoslide.js[22m[39m
+
+[32m[1mnoslide.js[22m[39m
+
+[32m[1mnoslide.js[22m[39m
+
+[32m[1mnoslide.js[22m[39m
+d88888b .88b  d88. d8888b. db   db  .d8b.  .d8888. d888888b .d8888. 
+88'     88'YbdP`88 88  `8D 88   88 d8' `8b 88'  YP   `88'   88'  YP 
+88ooooo 88  88  88 88oodD' 88ooo88 88ooo88 `8bo.      88    `8bo.   
+88~~~~~ 88  88  88 88~~~   88~~~88 88~~~88   `Y8b.    88      `Y8b. 
+88.     88  88  88 88      88   88 88   88 db   8D   .88.   db   8D 
+Y88888P YP  YP  YP 88      YP   YP YP   YP `8888Y' Y888888P `8888Y' 
+                                                                    
+                                                                    
+
+
+[3mThis text will be italic[23m
+[3mThis will also be italic[23m
+
+[1mThis text will be bold[22m
+[1mThis will also be bold[22m
+
+[3mYou ,[1mcan[22m, combine them[23m
+d888888b  .d8b.  d8888b. db      d88888b 
+`~~88~~' d8' `8b 88  `8D 88      88'     
+   88    88ooo88 88oooY' 88      88ooooo 
+   88    88~~~88 88~~~b. 88      88~~~~~ 
+   88    88   88 88   8D 88booo. 88.     
+   YP    YP   YP Y8888P' Y88888P Y88888P 
+                                         
+                                         
+
+[0m[90m┌──────────────┬───────────────┐[39m
+[90m│[39m[31m First Header [39m[90m│[39m[31m Second Header [39m[90m│[39m
+[90m├──────────────┼───────────────┤[39m
+[90m│[39m cell 1       [90m│[39m cell 2        [90m│[39m
+[90m├──────────────┼───────────────┤[39m
+[90m│[39m first column [90m│[39m second column [90m│[39m
+[90m└──────────────┴───────────────┘[39m[0m
+
+ .o88b.  .d88b.  d8888b. d88888b   d8888b. db       .d88b.   .o88b. db   dD 
+d8P  Y8 .8P  Y8. 88  `8D 88'       88  `8D 88      .8P  Y8. d8P  Y8 88 ,8P' 
+8P      88    88 88   88 88ooooo   88oooY' 88      88    88 8P      88,8P   
+8b      88    88 88   88 88~~~~~   88~~~b. 88      88    88 8b      88`8b   
+Y8b  d8 `8b  d8' 88  .8D 88.       88   8D 88booo. `8b  d8' Y8b  d8 88 `88. 
+ `Y88P'  `Y88P'  Y8888D' Y88888P   Y8888P' Y88888P  `Y88P'   `Y88P' YP   YD 
+                                                                            
+                                                                            
+
+
+   [32mvar[39m [34mconsole[39m[32m.[39m[34mlog[39m[90m([39m[92m"Hello >////<"[39m[90m)[39m[90m;[39m
+   [37ma[39m [93m=[39m [33m[[39m[34m1[39m[32m,[39m[34m2[39m[32m,[39m[34m3[39m[32m,[39m[34m4[39m[32m,[39m[34m5[39m[33m][39m[90m;[39m                
+   [37ma[39m[32m.[39m[37mforEach[39m[90m([39m[37mitem[39m [93m=>[39m [33m{[39m             
+     [34mconsole[39m[32m.[39m[34mlog[39m[90m([39m[37mitem[39m[90m)[39m[90m;[39m            
+   [33m}[39m[90m)[39m[90m;[39m                             
+   
+
+   [33mecho -e "Hello noslide.js" | grep "noslide"
+   [39m
+ .d88b.  d8888b. d8888b. d88888b d8888b.   db      d888888b .d8888. d888888b 
+.8P  Y8. 88  `8D 88  `8D 88'     88  `8D   88        `88'   88'  YP `~~88~~' 
+88    88 88oobY' 88   88 88ooooo 88oobY'   88         88    `8bo.      88    
+88    88 88`8b   88   88 88~~~~~ 88`8b     88         88      `Y8b.    88    
+`8b  d8' 88 `88. 88  .8D 88.     88 `88.   88booo.   .88.   db   8D    88    
+ `Y88P'  88   YD Y8888D' Y88888P 88   YD   Y88888P Y888888P `8888Y'    YP    
+                                                                             
+                                                                             
+
+[0m        
+1. item1
+2. item2
+3. item3
+   [0m
+
+
+
+db    db d8b   db  .d88b.  d8888b. d8888b. d88888b d8888b.   db      d888888b .d8888. d888888b 
+88    88 888o  88 .8P  Y8. 88  `8D 88  `8D 88'     88  `8D   88        `88'   88'  YP `~~88~~' 
+88    88 88V8o 88 88    88 88oobY' 88   88 88ooooo 88oobY'   88         88    `8bo.      88    
+88    88 88 V8o88 88    88 88`8b   88   88 88~~~~~ 88`8b     88         88      `Y8b.    88    
+88b  d88 88  V888 `8b  d8' 88 `88. 88  .8D 88.     88 `88.   88booo.   .88.   db   8D    88    
+~Y8888P' VP   V8P  `Y88P'  88   YD Y8888D' Y88888P 88   YD   Y88888P Y888888P `8888Y'    YP    
+                                                                                               
+                                                                                               
+
+[0m          
+    * item   
+    * item   
+   .. subitem
+   [0m
+
+
+db      d888888b d8b   db db   dD 
+88        `88'   888o  88 88 ,8P' 
+88         88    88V8o 88 88,8P   
+88         88    88 V8o88 88`8b   
+88booo.   .88.   88  V888 88 `88. 
+Y88888P Y888888P VP   V8P YP   YD 
+                                  
+                                  
+
+
+[34mGitHub ([34m[4mhttps://github.com/[24m[34m)[39m
+[34mnoslide.js ([34m[4mhttps://github.com/crazyguitar/noslide.js[24m[34m)[39m
+d8888b. db       .d88b.   .o88b. db   dD  .d88b.  db    db  .d88b.  d888888b d88888b 
+88  `8D 88      .8P  Y8. d8P  Y8 88 ,8P' .8P  Y8. 88    88 .8P  Y8. `~~88~~' 88'     
+88oooY' 88      88    88 8P      88,8P   88    88 88    88 88    88    88    88ooooo 
+88~~~b. 88      88    88 8b      88`8b   88    88 88    88 88    88    88    88~~~~~ 
+88   8D 88booo. `8b  d8' Y8b  d8 88 `88. `8P  d8' 88b  d88 `8b  d8'    88    88.     
+Y8888P' Y88888P  `Y88P'   `Y88P' YP   YD  `Y88'Y8 ~Y8888P'  `Y88P'     YP    Y88888P 
+                                                                                     
+                                                                                     
+
+
+[90m[3m   > Blockquotes are very handy in email to emulate reply text.
+   > This line is part of the same quote.                      
+   
+   [23m[39m
+
+
+Quote break.
+
+[90m[3m   > This is a very long line that will still be quoted properly when it wraps. Oh boy let&#39;s keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can [3mput[3m [1mMarkdown[22m into a blockquote.
+   
+   [23m[39m
+

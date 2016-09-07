@@ -15,7 +15,7 @@ src = [ './index.js'
       , './noslide'
       , './lib/*.js'
       , './lib/themes/*.js'
-      , './test/index.js'];
+      , './test/*.js'];
 
 
 gulp.task('pre-test', function () {
