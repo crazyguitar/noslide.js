@@ -1,8 +1,9 @@
-const jshint   = require('gulp-jshint')
-    , mocha    = require('gulp-mocha')
-    , istanbul = require('gulp-istanbul')
+const jshint    = require('gulp-jshint')
+    , mocha     = require('gulp-mocha')
+    , istanbul  = require('gulp-istanbul')
     , coveralls = require('gulp-coveralls')
-    , gulp     = require('gulp');
+    , gulp      = require('gulp')
+    , path      = require('path');
 
 jshintOpt = { esversion: 6
             , laxcomma: true
