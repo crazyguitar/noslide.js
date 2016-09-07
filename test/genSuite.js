@@ -14,8 +14,6 @@ function genSuite(mdFile, outFile, themeName) {
   const theme   = themes[themeName]
       , slide   = new noslide(mdFile, theme);
 
-  console.log(theme);
-
   return slide.parse()
     .then(slides => {
       var res = "";

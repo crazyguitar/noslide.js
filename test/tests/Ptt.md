@@ -69,3 +69,24 @@ echo -e "Hello noslide.js" | grep "noslide"
 Quote break.
 
 > This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
+
+# Image
+
+![Ptt](../images/ptt.jpg)
+
+
+# HTML
+
+<pre>
+```js
+console.log("Hello HTML");
+```
+</pre>
+
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does not work very well.</dd>
+</dl>
