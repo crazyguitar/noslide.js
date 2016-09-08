@@ -59,5 +59,15 @@ describe('Slide.parse', function() {
 
 });
 
+describe('Slide.render', function() {
+  const theme   = themes.Ptt
+      , mdFile  = __dirname + "/tests/Ptt.md"
+      , slide   = new noslide(mdFile, theme);
+
+  it('should be figlet format result.', () => {
+    slide.render();
+  });
+
+});
 
 })();
