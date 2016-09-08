@@ -5,7 +5,6 @@
 const chai    = require('chai')
     , expect  = chai.expect
     , fs      = require('fs')
-    , sinon   = require('sinon')
     , noslide = require('../index').noslide
     , themes  = require('../index').themes;
 
@@ -30,7 +29,7 @@ function test(themeName) {
     });
 }
 
-describe('Slide.parse', () => {
+describe('Slide.parse', function() {
 
   var suites = [ 'Ptt'
                , 'ZZZZZZZZZ9'
@@ -60,16 +59,5 @@ describe('Slide.parse', () => {
 
 });
 
-
-describe('Slide.render', () => {
-
-  var mdFile = __dirname + '/tests/Ptt.md';
-  var theme = themes.Ptt;
-  var slide = new noslide(mdFile, theme);
-
-  slide.render();
-  slide.screen.destroy();
-
-});
 
 })();
