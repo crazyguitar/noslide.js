@@ -37,7 +37,7 @@ task1(in, out => {
         // do something...
         task5(in, out => {
           // do something...
-        })l
+        });
       })
     });
   });
