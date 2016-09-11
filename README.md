@@ -45,6 +45,8 @@ $ noslide -h
     Arrow left       previous slide
     Arrow up         scroll up slide
     Arrow down       scroll down slide
+    home             go to first slide
+    end              go to last slide
     r                reload slide
     esc, q, Ctrl+c   quit
 ```
