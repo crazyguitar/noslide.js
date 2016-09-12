@@ -219,7 +219,7 @@ task('package.json', 'utf8');
 ### Python closure
 
 1. Implement call function
-2. Using nolocal statement
+2. Using nonlocal statement
 3. Using generator
 
 
@@ -231,22 +231,27 @@ task('package.json', 'utf8');
 ...     curr = 1
 ...     idx = 0
 ...     while idx < n:
-...         idx += 1
 ...         if idx < 2:
-...             yield idx -1
+...             yield idx
+...             idx += 1
 ...             continue
 ...         _ = curr
 ...         curr = curr + prev
 ...         yield curr
 ...         prev = _
+...         idx += 1
 ... 
->>> g = fib(3)
+>>> g = fib(5)
 >>> next(g)
 0
 >>> next(g)
 1
 >>> next(g)
+1
+>>> next(g)
 2
+>>> next(g)
+3
 ```
 
 # Round-Robin
