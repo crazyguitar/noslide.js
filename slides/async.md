@@ -17,7 +17,7 @@
 
 # Outline
 
-1. Callback hell 
+1. Callback hell
 2. Promise
 3. Async Await in Javascript
 4. asyncio
