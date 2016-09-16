@@ -52,7 +52,7 @@ describe('Slide.parse', function() {
   suites.forEach( s => {
     describe('Test theme "' + s + '"', () => {
       it('should be figlet format result.', () => {
-        test(s);
+        return test(s);
       });
     });
   });
@@ -60,12 +60,24 @@ describe('Slide.parse', function() {
 });
 
 describe('Slide.render', function() {
-  const theme   = themes.Ptt
-      , mdFile  = __dirname + "/tests/Ptt.md"
-      , slide   = new noslide(mdFile, theme);
 
-  it('should be figlet format result.', () => {
-    slide.render();
+  it('should render a screen.', () => {
+    const theme   = themes.Ptt
+        , mdFile  = __dirname + "/tests/Ptt.md"
+        , slide   = new noslide(mdFile, theme);
+    return slide.render().then(() => {
+      slide.screen.destroy();
+    });
+  });
+
+  it('should be throwing exception when file not exist', () => {
+    chai.use(require('chai-as-promised'));
+    const theme   = themes.Ptt
+        , mdFile  = __dirname + "/tests/$@?#~!"
+        , slide   = new noslide(mdFile, theme)
+        , should = chai.should();
+
+    return slide.render().should.be.rejected;
   });
 
 });

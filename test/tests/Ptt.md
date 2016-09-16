@@ -74,7 +74,7 @@ Quote break.
 
 # Image
 
-![Ptt](../images/ptt.jpg)
+![Ptt](images/ptt.jpg)
 
 
 # HTML
