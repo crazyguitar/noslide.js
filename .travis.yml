@@ -4,6 +4,8 @@ node_js:
   - "5"
 
 before_script:
+  - sudo apt-get update
+  - sudo apt-get install imagemagick graphicsmagick
   - npm install -g gulp
   - npm install -g mocha
   - npm install
@@ -14,4 +16,4 @@ script:
 after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
 
-sudo: false
+sudo: true
