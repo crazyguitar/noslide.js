@@ -17,7 +17,7 @@ function test(themeName) {
       , outFile = __dirname + "/tests/" + themeName + ".md.out"
       , slide   = new noslide(mdFile, theme);
 
-  var out = fs.readFileSync(outFile, 'utf8');
+  var out = fs.readFileSync(outFile, 'ascii');
 
   return slide.parse()
     .then(slides => {
@@ -25,7 +25,8 @@ function test(themeName) {
       slides.forEach(slide => {
         res += slide;
       });
-      expect(res).to.equal(out);
+      var buf = new Buffer(res, 'ascii');
+      expect(buf.toString('ascii')).to.equal(out);
     });
 }
 

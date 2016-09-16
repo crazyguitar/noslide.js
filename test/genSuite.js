@@ -21,7 +21,7 @@ function genSuite(mdFile, outFile, themeName) {
         res += slide;
       });
       console.log(res);
-      fs.writeFileSync(outFile, res, 'utf8');
+      fs.writeFileSync(outFile, res, 'ascii');
     })
     .catch(e => {
       console.log(e);
