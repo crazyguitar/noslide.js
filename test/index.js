@@ -66,6 +66,8 @@ describe('Slide.render', function() {
         , mdFile  = __dirname + "/tests/Ptt.md"
         , slide   = new noslide(mdFile, theme);
     return slide.render().then(() => {
+      slide.reload();
+    }).then(() => {
       slide.screen.destroy();
     });
   });
