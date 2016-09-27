@@ -4,7 +4,8 @@
 
 [![Build Status](https://travis-ci.org/crazyguitar/noslide.js.svg?branch=master)](https://travis-ci.org/crazyguitar/noslide.js)
 [![Coverage Status](https://coveralls.io/repos/github/crazyguitar/noslide.js/badge.svg?branch=master)](https://coveralls.io/github/crazyguitar/noslide.js?branch=master)
-[![Dependencies](https://david-dm.org/crazyguitar/noslide.js.svg)](https://david-dm.org/crazyguitar/noslide.js)
+[![Dependency Status](https://gemnasium.com/badges/github.com/crazyguitar/noslide.js.svg)](https://gemnasium.com/github.com/crazyguitar/noslide.js)
+[![Code Climate](https://codeclimate.com/github/crazyguitar/noslide.js/badges/gpa.svg)](https://codeclimate.com/github/crazyguitar/noslide.js)
 
 ### Install
 
